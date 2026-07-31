@@ -33,3 +33,12 @@ button:hover {
     margin:20px auto;
     border:4px solid #4CAF50;
 }
+ul{
+    list-style-position: inside;
+    padding: 0;
+}
+
+li{
+    list-style: none;
+    margin: 5px 0;
+}
