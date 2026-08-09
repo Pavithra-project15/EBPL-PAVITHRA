@@ -1,44 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background-color: #f4f4f4;
     font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #222;
+    line-height: 1.6;
+}
+
+/* Navigation */
+nav {
+    background: #172554;
+    padding: 18px;
     text-align: center;
-    padding: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-h1 {
-    color: darkblue;
-}
-
-h2 {
-    color: green;
-}
-
-button {
-    background-color: blue;
+nav a {
     color: white;
-    padding: 10px 20px;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #93c5fd;
+}
+
+/* Header */
+h1 {
+    text-align: center;
+    color: #172554;
+    font-size: 42px;
+    margin-top: 50px;
+}
+
+body > p {
+    text-align: center;
+}
+
+/* Profile Image */
+img {
+    display: block;
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 20px auto;
+    border: 5px solid #2563eb;
+}
+
+/* Horizontal line */
+hr {
     border: none;
-    border-radius: 5px;
+    height: 2px;
+    background: #d1d5db;
+    margin: 40px auto;
+    width: 85%;
+}
+
+/* Sections */
+h2 {
+    text-align: center;
+    color: #2563eb;
+    margin-top: 35px;
+    margin-bottom: 15px;
+}
+
+p {
+    max-width: 750px;
+    margin: 10px auto;
+    text-align: center;
+}
+
+/* Skills */
+ul {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 0;
+    text-align: center;
+    list-style: none;
+}
+
+li {
+    background: white;
+    margin: 10px;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Projects */
+#projects {
+    margin-top: 40px;
+}
+
+/* GitHub Button */
+button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 button:hover {
-    background-color: darkblue;
-}
-.profile-pic{
-    width:180px;
-    height:180px;
-    border-radius:50%;
-    object-fit:cover;
-    display:block;
-    margin:20px auto;
-    border:4px solid #4CAF50;
-}
-ul{
-    list-style-position: inside;
-    padding: 0;
+    background: #172554;
 }
 
-li{
-    list-style: none;
-    margin: 5px 0;
+a {
+    color: #2563eb;
 }
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    nav a {
+        display: inline-block;
+        margin: 5px 8px;
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    img {
+        width: 150px;
+        height: 150px;
+    }
+
+    p {
+        padding: 0 20px;
+    }
+        }
