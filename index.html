@@ -1,74 +1,686 @@
 <!DOCTYPE html>
-<html>
-    <head>
-    <title>My First Website</title>
-    <link rel="stylesheet" href="style.css">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pavithra S | Digital Marketing & IT Fresher</title>
+
+    <meta name="description"
+          content="Pavithra S - B.Tech Information Technology student interested in digital marketing, social media marketing, content creation and web development.">
+
+    <meta name="theme-color" content="#14264f">
+
+    <style>
+        :root {
+            --primary: #14264f;
+            --accent: #3478f6;
+            --background: #f5f7fc;
+            --text: #263247;
+            --white: #ffffff;
+            --muted: #667085;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1080px, 90%);
+            margin: auto;
+        }
+
+        /* Navigation */
+
+        header {
+            background: var(--primary);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            min-height: 68px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            color: var(--white);
+            font-size: 21px;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #a9c7ff;
+        }
+
+        /* Hero */
+
+        .hero {
+            padding: 90px 0 75px;
+            background: linear-gradient(135deg, #eef3ff, #ffffff);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: clamp(36px, 5vw, 54px);
+            line-height: 1.2;
+            margin: 15px 0;
+        }
+
+        .hero h2 {
+            font-size: 21px;
+            font-weight: 500;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            color: var(--muted);
+            margin-bottom: 25px;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 50%;
+            border: 6px solid var(--white);
+            box-shadow: 0 10px 35px rgba(20, 38, 79, 0.15);
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 21px;
+            border-radius: 7px;
+            background: var(--accent);
+            color: var(--white);
+            font-weight: 700;
+            font-size: 14px;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            background: #245fc9;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            color: var(--white);
+            background: var(--primary);
+        }
+
+        /* General sections */
+
+        section {
+            padding: 70px 0;
+            scroll-margin-top: 75px;
+        }
+
+        .section-title {
+            color: var(--primary);
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--muted);
+            max-width: 650px;
+            margin: 0 auto 35px;
+        }
+
+        .about-text {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        /* Skills */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #e8edf6;
+            box-shadow: 0 5px 20px rgba(20, 38, 79, 0.04);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 28px rgba(20, 38, 79, 0.09);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            font-size: 19px;
+            margin-bottom: 15px;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .tag {
+            background: #edf3ff;
+            color: #2454a6;
+            border-radius: 5px;
+            padding: 6px 10px;
+            font-size: 13px;
+        }
+
+        /* Projects */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card p {
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+
+        .project-card .tag-list {
+            margin-bottom: 20px;
+        }
+
+        .project-link {
+            margin-top: auto;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        /* Education and certifications */
+
+        .timeline {
+            max-width: 780px;
+            margin: auto;
+        }
+
+        .timeline-item {
+            background: var(--white);
+            padding: 22px;
+            margin-bottom: 18px;
+            border-left: 4px solid var(--accent);
+            border-radius: 8px;
+        }
+
+        .timeline-item h3 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .timeline-item p {
+            color: var(--muted);
+        }
+
+        /* Contact */
+
+        .contact-box {
+            max-width: 720px;
+            margin: auto;
+            text-align: center;
+            background: var(--white);
+            border-radius: 14px;
+            padding: 35px;
+            box-shadow: 0 5px 25px rgba(20, 38, 79, 0.06);
+        }
+
+        .contact-box p {
+            margin-bottom: 10px;
+        }
+
+        .contact-email {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--accent);
+            font-weight: 700;
+            overflow-wrap: anywhere;
+        }
+
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 23px 15px;
+            font-size: 14px;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 760px) {
+            nav {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+
+            .nav-links {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px 18px;
+            }
+
+            .hero {
+                padding: 55px 0;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .hero-image {
+                grid-row: 1;
+            }
+
+            .hero-image img {
+                width: 190px;
+                height: 190px;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 50px 0;
+            }
+
+            .section-title {
+                font-size: 27px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition: none !important;
+            }
+        }
+    </style>
 </head>
+
 <body>
-<nav>
-    <a href="#about">About Me</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-</nav>
-<h1>Hi, I'm Pavithra S</h1>
 
-<p>B.Tech Information Technology Student | Fresher</p>
+    <!-- Navigation -->
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo">Pavithra S.</a>
 
-<p>
-Interested in Digital Marketing, Web Development and learning new technologies.
-I am looking for opportunities to learn, grow and begin my professional career.
-</p>
-<img src="IMG-20260616-WA0004.jpg" alt="Pavithra" class="profile-pic">
-<hr>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<h2>About Me</h2>
-<p>
-I am Pavithra, a B.Tech Information Technology student with an interest in Digital Marketing and Web Development.
-I have basic knowledge of HTML, CSS, GitHub, and Python.
-I am passionate about learning new technologies, improving my skills, and building creative digital solutions.
-</p>
+    <main>
 
-<h2 id="skills">Skills</h2>
+        <!-- Hero -->
+        <section class="hero" id="home">
+            <div class="container hero-content">
 
-<ul>
-    <li>HTML & CSS</li>
-    <li>Python – Basic</li>
-    <li>GitHub</li>
-    <li>Digital Marketing – Basic</li>
-    <li>Canva</li>
-    <li>Communication & Teamwork</li>
-</ul>
+                <div>
+                    <span class="eyebrow">Welcome to my portfolio</span>
 
-<h2>Projects</h2>
-<p>Currently building my first project and exploring web development and digital marketing.</p>
-    <h2>Certifications</h2>
+                    <h1>Hi, I'm Pavithra S.</h1>
 
-<ul>
-    <li>Artificial Intelligence Fundamentals – IBM</li>
-    <li>Project Management Fundamentals – IBM</li>
-    <li>Career Management Essentials – IBM</li>
-    <li>Craft Management Fundamentals – IBM</li>
-</ul>
+                    <h2>B.Tech IT Student | Aspiring Digital Marketer</h2>
 
-<h2>Contact</h2>
-<p>
-I am a fresher looking for internship and entry-level opportunities.
-I am eager to learn, grow, and build my career.
-</p>
-<p>Email: pavithrasivakumar1502@gmail.com.com</p>
-    <a href="https://github.com/Pavithra-project15">
-    <button>Visit My GitHub</button>
-</a>
+                    <p>
+                        I am interested in digital marketing, social media
+                        marketing, content creation, and web development.
+                        I am looking for entry-level opportunities where I
+                        can apply my skills, learn from professionals, and
+                        grow my career.
+                    </p>
 
-<a href="https://www.linkedin.com/in/pavithra-s-5b54a52a1">
-    <button>Visit My LinkedIn</button>
-</a>
-    <a href="Pavithra_S_Resume-3.pdf" target="_blank">
-    <button>View My Resume</button>
-    </a>
-    <footer>
-    <p>© 2026 Pavithra S. All Rights Reserved.</p>
-    </footer>
-</body>
-</html>
+                    <div class="buttons">
+                        <a href="#projects" class="btn">View My Projects</a>
+
+                        <a href="#contact" class="btn btn-outline">
+                            Contact Me
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <!-- Replace this with your actual profile photo URL -->
+                    <img
+                        src="YOUR_PROFILE_IMAGE_URL"
+                        alt="Pavithra S profile photo"
+                        onerror="this.style.display='none'">
+                </div>
+
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+
+                <p class="section-subtitle">
+                    A fresher who is ready to learn, contribute, and grow.
+                </p>
+
+                <div class="about-text">
+                    <p>
+                        I am Pavithra S, a B.Tech Information Technology
+                        student at Vivekanandha College of Technology for
+                        Women. I have an interest in digital marketing,
+                        social media marketing, content creation, and
+                        web development.
+                    </p>
+
+                    <p>
+                        I enjoy exploring digital tools, creating promotional
+                        content, and learning new technologies. I am seeking
+                        an entry-level opportunity where I can develop my
+                        skills, gain practical experience, and contribute
+                        positively to an organization.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills">
+            <div class="container">
+                <h2 class="section-title">My Skills</h2>
+
+                <p class="section-subtitle">
+                    Skills and tools I have learned and explored.
+                </p>
+
+                <div class="skills-grid">
+
+                    <div class="card">
+                        <h3>Digital Marketing</h3>
+                        <div class="tag-list">
+                            <span class="tag">Digital Marketing Basics</span>
+                            <span class="tag">Social Media Marketing</span>
+                            <span class="tag">Content Creation</span>
+                            <span class="tag">Instagram Reels</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Creative Tools</h3>
+                        <div class="tag-list">
+                            <span class="tag">Canva</span>
+                            <span class="tag">CapCut</span>
+                            <span class="tag">Promotional Designs</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Technical Skills</h3>
+                        <div class="tag-list">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Python - Basic</span>
+                            <span class="tag">Java - Basic</span>
+                            <span class="tag">GitHub</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Professional Skills</h3>
+                        <div class="tag-list">
+                            <span class="tag">Communication</span>
+                            <span class="tag">Teamwork</span>
+                            <span class="tag">Creativity</span>
+                            <span class="tag">Time Management</span>
+                            <span class="tag">Quick Learning</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title">My Projects</h2>
+
+                <p class="section-subtitle">
+                    Academic and creative projects that reflect my learning.
+                </p>
+
+                <div class="projects-grid">
+
+                    <article class="card project-card">
+                        <h3>Amma's Podi - Business Website</h3>
+
+                        <p>
+                            Created a business website for a homemade peanut
+                            podi brand using Google Sites. Added product
+                            details, pricing, business information, and
+                            promotional content.
+                        </p>
+
+                        <div class="tag-list">
+                            <span class="tag">Google Sites</span>
+                            <span class="tag">Web Design</span>
+                            <span class="tag">Content Creation</span>
+                        </div>
+
+                        <!-- Add your live project URL if available -->
+                        <span class="project-link">
+                            Business Website Project
+                        </span>
+                    </article>
+
+                    <article class="card project-card">
+                        <h3>HR Policy Assistant using AI</h3>
+
+                        <p>
+                            Developed an AI-based assistant designed to
+                            answer employee questions using organizational
+                            HR documents and Retrieval-Augmented Generation
+                            concepts.
+                        </p>
+
+                        <div class="tag-list">
+                            <span class="tag">Generative AI</span>
+                            <span class="tag">RAG</span>
+                            <span class="tag">Academic Project</span>
+                        </div>
+
+                        <span class="project-link">
+                            Academic Project
+                        </span>
+                    </article>
+
+                    <article class="card project-card">
+                        <h3>Social Media Content Creation</h3>
+
+                        <p>
+                            Created promotional content and Instagram Reels
+                            for business promotion using creative design
+                            and video editing tools.
+                        </p>
+
+                        <div class="tag-list">
+                            <span class="tag">Canva</span>
+                            <span class="tag">CapCut</span>
+                            <span class="tag">Social Media</span>
+                        </div>
+
+                        <span class="project-link">
+                            Creative Work
+                        </span>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Education and internship -->
+        <section id="education">
+            <div class="container">
+                <h2 class="section-title">Education & Experience</h2>
+
+                <p class="section-subtitle">
+                    My academic background and internship experience.
+                </p>
+
+                <div class="timeline">
+
+                    <div class="timeline-item">
+                        <h3>B.Tech - Information Technology</h3>
+                        <p>Vivekanandha College of Technology for Women</p>
+                        <p>2023 - 2027 | CGPA: 8.19</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h3>Web Designing Intern</h3>
+                        <p>Techvolt Software Pvt. Ltd., Coimbatore</p>
+                        <p>23 June - 30 June 2025</p>
+                        <p>
+                            Gained practical exposure to web design,
+                            HTML, CSS, and website development concepts.
+                        </p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h3>Hackathon Participation</h3>
+                        <p>Smart India Hackathon - 2024, 2025 and 2026</p>
+                        <p>
+                            Participated in problem-solving projects related
+                            to technology and real-world challenges.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section id="certifications">
+            <div class="container">
+                <h2 class="section-title">Certifications</h2>
+
+                <p class="section-subtitle">
+                    Courses and certifications I have completed.
+                </p>
+
+                <div class="timeline">
+
+                    <div class="timeline-item">
+                        <h3>Artificial Intelligence Fundamentals</h3>
+                        <p>IBM</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h3>Project Management Fundamentals</h3>
+                        <p>IBM</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h3>Career Management Essentials</h3>
+                        <p>IBM</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h3>Craft Management Fundamentals</h3>
+                        <p>IBM</p>
+                    </div>
+
+                    <div class="timeline-item">
+       
